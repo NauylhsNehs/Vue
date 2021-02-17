@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>vue</title>
-    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" type="text/css" href="./assets/styles.css">
     <script src="vue.global.js"></script>
 </head>
 <body>
     <div id="app">
-        <h1>{{product}}</h1>
+        <h1 v-if='inStock'>{{product1}}</h1>
+        <!-- <h1 v-if='inStock'>{{counter}}</h1> -->
+        <h1 v-else>{{product2}}</h1>
+        <button @click='addToCart'>Add to Cart</button>
+        <span>{{cart}}</span>
+        <li v-for='detail in details'>{{detail}}</li>
+        <h1 class='pics' v-for='variant in variants' :key='variant.id' @mouseover='updateImage(variant.image)' @mouseout='updateImage(orimage)'>{{variant.posture}}</h1>
+        <div class="product-image">
+            <img class="bgpic" :src="image">
+            <!-- <img class="bgpic" :src="image2"> -->
+        </div>
+        
     </div>
     <script src="main.js"></script>
-    <script>
-        const mountedApp=app.mount('#app')
-    </script>
 </body>
 </html>

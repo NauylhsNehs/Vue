@@ -1,0 +1,13 @@
+*{
+    background-color: darkslategrey;
+    color: beige;
+}
+.bgpic{
+    width: 25%;
+    height: 25%;
+    /* display: none; */
+}
+.pics{
+    display: inline;
+    margin-left: 10px;
+}
