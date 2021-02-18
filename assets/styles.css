@@ -1,13 +1,47 @@
-*{
+:not(h1) {
     background-color: darkslategrey;
     color: beige;
+    font-size: medium;
 }
-.bgpic{
+
+.bgpic {
     width: 25%;
     height: 25%;
-    /* display: none; */
+    margin-top: 8px;
+    border: 2px solid #d8d8d8;
+    border-radius: 10px;
 }
-.pics{
-    display: inline;
+
+.pics {
+    display: inline-block;
     margin-left: 10px;
+    margin-top: 8px;
+    border: 2px solid #d8d8d8;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.button {
+    width: 120px;
+    height: 60px;
+    background-color: rgb(212, 172, 124);
+    border-radius: 15px;
+    border: none;
+    color: cadetblue;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.disableButton {
+    background-color: cadetblue;
+    cursor: not-allowed;
+}
+
+.cart{
+    width: 60px;
+    background-color: cadetblue;
+    margin: 20px;
+    border-radius: 20px;
+    text-align: center;
 }
