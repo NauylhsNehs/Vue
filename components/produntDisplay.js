@@ -1,4 +1,10 @@
 app.component('product-display',{
+    props:{
+        premium:{
+            type:Boolean,
+            required:true,
+        },
+    },
     template: 
         /*html*/
         `<div class='product'>
@@ -17,6 +23,8 @@ app.component('product-display',{
             <div class="product-image">
                 <img class="bgpic" :src="image">
             </div>
+            <review-list v-if='reviews.length' :reviews='reviews'></review-list>
+            <review-form @review-submitted='addReview'></review-form>
         </div>`,
     data() {
         return {
@@ -29,6 +37,7 @@ app.component('product-display',{
                 { id: 2333, posture: 'kneel', color: 'red', image: './assets/images/02.jpg',quantity:0 },
             ],
             selectedVariant:999,
+            reviews:[],
         }
     },
     methods: {
@@ -43,6 +52,10 @@ app.component('product-display',{
             this.selectedVariant=index;
             console.log('update', this.image);
         },
+        addReview(review){
+            this.reviews.push(review)
+            console.log(this.reviews.length)
+        }
     },
     computed:{
         image(){
@@ -69,10 +82,4 @@ app.component('product-display',{
             this.shrink = !this.shrink
         }, 2000)
     },
-    props:{
-        premium:{
-            type:Boolean,
-            required:true,
-        },
-    }
 })
