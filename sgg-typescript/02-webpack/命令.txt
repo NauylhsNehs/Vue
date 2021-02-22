@@ -1,0 +1,12 @@
+npm init -y
+tsc --init
+npm install -D typescript
+npm install -D webpack@4.41.5 webpack-cli@3.3.10 webpack-dev-server@3.10.2
+npm install -D html-webpack-plugin clean-webpack-plugin
+npm install -D ts-loader
+npm install -D cross-env
+npm run dev
+npm run build
+npm update
+npm outdated
+npm uninstall -g XXX

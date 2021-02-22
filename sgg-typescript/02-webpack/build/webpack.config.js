@@ -12,6 +12,7 @@ module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
     app: './src/main.ts'
+    // app: './src/index.js'
   },
 
   output: {
@@ -39,7 +40,7 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['','.ts', '.tsx', '.js']
   },
 
   devtool: isProd ? 'cheap-module-source-map' : 'cheap-module-eval-source-map',
