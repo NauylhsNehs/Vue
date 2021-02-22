@@ -1,0 +1,10 @@
+//vue-cli
+npm install -g @vue/cli
+vue --version
+vue create my-project
+
+//vite
+npm init vite-app <project-name>
+cd <project-name>
+npm install
+npm run dev
