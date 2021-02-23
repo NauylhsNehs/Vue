@@ -1,27 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <h2>{{ count }}</h2>
+  <div>哈哈哈</div>
+  <button @click="update">update</button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  setup() {
+    //定义响应式对象
+    const count = ref(1);
+    console.log(count);
+
+    function update() {
+      count.value++;
+    }
+
+    return {
+      count,
+      update,
+    };
+  },
 });
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
