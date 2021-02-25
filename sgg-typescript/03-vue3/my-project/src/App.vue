@@ -1,24 +1,34 @@
 <template>
   <h2>{{ count }}</h2>
+  <!-- <h3>x:{{ x }},y{{ y }}</h3> -->
   <div>哈哈哈</div>
   <button @click="updateref">update1</button>
-  <button @click="updatereactive">update2</button>
+  <button @click="updatereactive">update2</button><br />
+  <button @click="lcshow = !lcshow">lcshow</button>
   <hr />
   <Child :msg="cmsg" msg2="真香" @XXX="xxx"></Child>
   <Cww />
+  <hr />
+  <Lc v-if="lcshow" />
+  <hr />
+  <hook />
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from "vue";
 import Child from "./components/child.vue";
 import Cww from "./components/computed-watch-watchEffect.vue";
+import Lc from "./components/lifeCircle.vue";
+import hook from "./components/hook/hook.vue";
 export default defineComponent({
   name: "App",
   components: {
     Child,
     Cww,
+    Lc,
+    hook,
   },
-  setup(props, context) {
+  setup() {
     //定义响应式对象
     const obj: any = {
       //注意any，否则不能响应式添加数据
@@ -53,6 +63,9 @@ export default defineComponent({
     const xxx = (str: string) => {
       cmsg.value += str;
     };
+    const lcshow = ref(true);
+
+    // const { x, y } = hook1();
     return {
       count,
       user,
@@ -61,6 +74,9 @@ export default defineComponent({
       updatereactive,
       cmsg,
       xxx,
+      lcshow,
+      // x,
+      // y,
     };
   },
 });

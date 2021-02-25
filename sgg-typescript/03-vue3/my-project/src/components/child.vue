@@ -8,6 +8,7 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "Child",
   props: ["msg"],
+  emits: ["XXX"],
   setup(props, context) {
     // 在beforeCreate前执行
     // props: 包含props配置声明且传入了的所有属性的对象
