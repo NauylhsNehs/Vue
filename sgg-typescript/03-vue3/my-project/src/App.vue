@@ -47,6 +47,11 @@ export default defineComponent({
     // 如果用ref对象/数组, 内部会自动将对象/数组转换为reactive的代理对象
     const user2 = ref(obj);
 
+    // toRefs:
+    //   将响应式对象中所有属性包装为ref对象, 并返回包含这些ref对象的普通对象
+    //   应用: 当从合成函数返回响应式对象时，toRefs 非常有用，
+    //         这样消费组件就可以在不丢失响应式的情况下对返回的对象进行分解使用
+
     console.log(count);
     console.log(user, user2);
 
