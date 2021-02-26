@@ -1,5 +1,10 @@
 <template>
   <h2>App</h2>
+  <input
+    type="text"
+    ref="inputRef"
+    placeholder="ref获取页面中的元素（直接获取焦点）"
+  /><br />
   fistName: <input v-model="user.firstName" /><br />
   lastName: <input v-model="user.lastName" /><br />
   fullName1: <input v-model="fullName1" /><br />
@@ -27,6 +32,7 @@ import {
   watch,
   watchEffect,
   defineComponent,
+  onMounted,
 } from "vue";
 
 export default defineComponent({
@@ -102,12 +108,18 @@ export default defineComponent({
     //   console.log("监视多个数据", values);
     // });
 
+    const inputRef = ref<HTMLElement | null>(null);
+
+    onMounted(() => {
+      inputRef.value && inputRef.value.focus();
+    });
     return {
       user,
       fullName1,
       fullName2,
       fullName3,
       fullName4,
+      inputRef,
     };
   },
 });
